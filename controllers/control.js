@@ -1,4 +1,9 @@
 const conn = require('../database/db')
+const path = require('path')
+
+function views(document){
+    return path.join(__dirname,"views",document)
+}
 
 const control = {}
 

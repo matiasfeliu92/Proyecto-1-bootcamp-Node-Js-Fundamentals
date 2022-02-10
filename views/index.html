@@ -4,16 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agregar Canciones</title>
 </head>
 <body>
-    <form id="formulario" action="">
-        <input type="text" placeholder="Ingrese la cancion" name="cancion">
+    <form id="formulario">
+        <input type="text" placeholder="Ingrese el titulo la cancion" name="titulo">
         <input type="text" placeholder="Ingrese el autor" name="autor">
         <input type="text" placeholder="Ingrese el album" name="album">
         <input type="text" placeholder="Ingrese la duracion" name="duracion">
         <input type="text" placeholder="Ingrese el genero" name="genero">
         <button>Agregar Cancion</button>
     </form>
+    <script>
+        const form = document.getElementById('formulario')
+
+        const agregarCancion = () => {
+            fetch('http://localhost:4000/guardar', {
+                method:"POST",
+                headers:{"Content-Type": "application/json"},
+                body:JSON.stringify({
+                    titulo:form.titulo.value,
+                    autor:form.autor.value,
+                    album:form.album.value,
+                    duracion:form.duracion.value,
+                    genero:form.genero.value
+                })
+            }).then((res)=>{
+                return res.json()
+            }).then((res)=>{
+                console.log(res)
+                window.location.replace('http://localhost:4000/canciones')
+            })
+        }
+
+        form.onsubmit = (event)=>{
+            event.preventDefault()
+            agregarCancion()
+        }
+    </script>
 </body>
 </html>

@@ -22,4 +22,4 @@ Content-Type: application/json
 }
 
 ### ELIMINAR CANCIONES
-GET http://localhost:4000/eliminar/3 HTTP/1.1
+GET http://localhost:4000/eliminar/6 HTTP/1.1
