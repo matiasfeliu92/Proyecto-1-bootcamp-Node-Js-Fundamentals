@@ -1,9 +1,9 @@
 const conn = require('../database/db')
-const path = require('path')
+// const path = require('path')
 
-function views(document){
-    return path.join(__dirname,"views",document)
-}
+// function views(document){
+//     return path.join(__dirname,"views",document)
+// }
 
 const control = {}
 
@@ -12,7 +12,7 @@ control.getAll = async (req, res) => {
         if(err){
             return res.json(err)
         }
-            return res.json(results)
+            return res.render('verCanciones', {h1VerCanciones: 'Bienvenidos a mi lista de canciones', results: results})
     })
 }
 
@@ -23,7 +23,7 @@ control.insert = async (req, res) => {
         if(err){
             return res.json(err)
         }
-            return res.json(results)
+            return res.render('index', {h1Index: 'Inserta tu cancion favorita'})
     })
 }
 
@@ -48,4 +48,4 @@ control.delete = async (req, res) => {
     })
 }
 
-module.exports = control 
+module.exports = control   

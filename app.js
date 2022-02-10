@@ -8,8 +8,10 @@ const app = express()
 
 app.set('port', process.env.PORT || 4000)
 
-app.use(morgan('dev'))
+app.set('view engine', 'ejs')
 
+app.use(morgan('dev')) 
+ 
 // function views(document){
 //     return path.join(__dirname,"views",document)
 // }
