@@ -13,15 +13,17 @@
     <title>Document</title>
   </head>
   <body>
-    <h1><%= h1VerCanciones %></h1>
+    <a href="/">Nueva cancion</a>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">titulo</th>
-          <th scope="col">autor</th>
-          <th scope="col">album</th>
-          <th scope="col">genero</th>
-          <th scope="col">duracion</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Album</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Duracion</th>
+          <th scope="col">Modificar</th>
+          <th scope="col">Eliminar</th>
         </tr>
       </thead>
       <tbody>
@@ -32,8 +34,8 @@
           <td><%= cancion.album %></td>
           <td><%= cancion.genero %></td>
           <td><%= cancion.duracion %></td>
-          <td><a href="">actualizar</a></td>
-          <td><a href="">Eliminar</a></td> 
+          <td><a href="/detalleCancion/<%= cancion.id %>">actualizar</a></td>
+          <td><a  onclick="eliminar(<%= cancion.id %>)">Eliminar</a></td> 
         </tr>
         <% }) %>
       </tbody>
@@ -43,5 +45,24 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      function eliminar(id) {
+        swal({
+          title: "Are you sure?",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            window.location = '/eliminar/'+id
+            swal("Poof! Your imaginary file has been deleted!", {
+              icon: "success",
+            });
+          } 
+        })
+      }
+    </script>
   </body>
 </html>

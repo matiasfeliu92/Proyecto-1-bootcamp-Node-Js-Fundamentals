@@ -8,5 +8,14 @@
   </head>
   <body>
     <h1><%= h1Index %></h1>
+    <a href="/canciones">Lista de Canciones</a>
+    <form action="/guardar" method="post">
+      <input type="text" placeholder="Ingrese el titulo la cancion" name="titulo">
+      <input type="text" placeholder="Ingrese el autor" name="autor">
+      <input type="text" placeholder="Ingrese el album" name="album">
+      <input type="text" placeholder="Ingrese la duracion" name="duracion">
+      <input type="text" placeholder="Ingrese el genero" name="genero">
+      <button type="submit">Agregar Cancion</button>
+  </form>
   </body>
 </html>

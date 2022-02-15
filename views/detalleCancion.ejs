@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% results.forEach(cancion => { %>
+        <form action="/actualizar/<%= cancion.id %>" method="post">
+            <input type="text" placeholder="Ingrese el titulo la cancion" name="titulo" value="<%= cancion.titulo %>">
+            <input type="text" placeholder="Ingrese el autor" name="autor" value="<%= cancion.autor %>">
+            <input type="text" placeholder="Ingrese el album" name="album" value="<%= cancion.album %>">
+            <input type="text" placeholder="Ingrese la duracion" name="duracion" value="<%= cancion.duracion %>">
+            <input type="text" placeholder="Ingrese el genero" name="genero" value="<%= cancion.genero %>">
+            <button type="submit">Guardar Cambios</button>
+            <a href="/canciones">Cancelar</a>
+        </form>
+    <% }) %>
+</body>
+</html>

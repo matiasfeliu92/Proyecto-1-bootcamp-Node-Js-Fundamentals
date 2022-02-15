@@ -1,11 +1,10 @@
 const conn = require('../database/db')
-// const path = require('path')
-
-// function views(document){
-//     return path.join(__dirname,"views",document)
-// }
 
 const control = {}
+
+control.formCreate = (req, res) => {
+    return res.render('index', {h1Index: 'Ingresa tu Canción favorita'})
+}
 
 control.getAll = async (req, res) => {
     await conn.query('SELECT * FROM canciones', (err, results)=>{
@@ -16,6 +15,17 @@ control.getAll = async (req, res) => {
     })
 }
 
+control.getbyId = async (req,res) => {
+    const id = req.params.id
+    await conn.query('SELECT * FROM canciones where id = ?', [id], (err, results) => {
+        if(err) {
+            return res.json(err)
+        }
+        return res.render('detalleCancion', {results: results})
+    })
+}
+
+
 control.insert = async (req, res) => {
     const cancion = req.body
     console.log(cancion)
@@ -23,7 +33,7 @@ control.insert = async (req, res) => {
         if(err){
             return res.json(err)
         }
-            return res.render('index', {h1Index: 'Inserta tu cancion favorita'})
+            return res.redirect('/canciones')
     })
 }
 
@@ -34,7 +44,7 @@ control.update = async (req, res) => {
         if(err){
             return res.json(err)
         }
-            return res.json(results)
+            return res.redirect('/canciones')
     })
 }
 
@@ -44,8 +54,8 @@ control.delete = async (req, res) => {
         if(err){
             return res.json(err)
         }
-            return res.json(results)
+            return res.redirect('/canciones')
     })
 }
 
-module.exports = control   
+module.exports = control
