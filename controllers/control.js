@@ -56,6 +56,6 @@ control.delete = async (req, res) => {
         }
             return res.redirect('/canciones')
     })
-}
+} 
 
 module.exports = control
