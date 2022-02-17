@@ -6,7 +6,7 @@ control.formCreate = (req, res) => {
     return res.render('index', {h1Index: 'Ingresa tu Canción favorita'})
 }
 
-control.getAll = async (req, res) => {
+control.getAll = async (req, res) => { 
     await conn.query('SELECT * FROM canciones', (err, results)=>{
         if(err){
             return res.json(err)
