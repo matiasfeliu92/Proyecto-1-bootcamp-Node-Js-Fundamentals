@@ -1,20 +1,22 @@
 .content {
-    width: 100%;
+    /* width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
+    background-color: coral;
 }
 
-.cancionCard {
+/* .cancionCard {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-}
+    align-items: center;
+} */
 
-.imagenes {
+/* .imagenes {
     width: 20%;
     height: auto;
-}
+} */
