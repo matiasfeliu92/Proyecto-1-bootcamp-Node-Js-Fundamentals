@@ -1,6 +1,6 @@
 const {Cancion} = require('../database/db')
 
-const control = {
+const cancionesController = {
 
     create: (req, res) => {
         Cancion.create({
@@ -32,9 +32,9 @@ const control = {
                 res.status(403).json({message: "no se encontro ninguna cancion en la lista"})
             }
         })
-        .catch((err) => {
-            console.log(`Se ha producido el siguiente error: ${err}`)
-        })
+        // .catch((err) => {
+        //     console.log(`Se ha producido el siguiente error: ${err}`)
+        // })
     },
 
     showById: (req, res) => {
@@ -48,9 +48,9 @@ const control = {
                 res.status(403).json({message: "no se encontro ninguna cancion con el id seleccionado"})
             }
         })
-        .catch((err) => {
-            console.log(`Se ha producido el siguiente error: ${err}`)
-        })
+        // .catch((err) => {
+        //     console.log(`Se ha producido el siguiente error: ${err}`)
+        // })
     },
 
     update: (req, res) => {
@@ -66,13 +66,14 @@ const control = {
                     genero: req.body.genero,
                     imagen: req.body.imagen,
                     linkyoutube: req.body.linkyoutube
-                })
+                }, {where:{id: id}})
                 .then((cancion) => {
                     console.log(cancion)
                     res.status(200).json(cancion)
                 })
                 .catch((err) => {
-                    console.log(`Se ha producido el siguiente error: ${err}`)
+                    res.status(403).json({message: `Se ha producido el siguiente error: ${err.parent.sqlMessage}`})
+                    console.log(`Se ha producido el siguiente error: ${err.parent.sqlMessage}`)
                 })
             } else {
                 return res.status(404).json({message: 'No se pudo actualizar la cancion'})
@@ -103,4 +104,4 @@ const control = {
 
 }
 
-module.exports = control
+module.exports = cancionesController
