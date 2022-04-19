@@ -23,6 +23,7 @@
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
+    "@architect/sandbox": "^5.2.2",
     "nodemon": "^2.0.15"
   }
 }
