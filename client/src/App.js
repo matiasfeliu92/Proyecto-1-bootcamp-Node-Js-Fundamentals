@@ -5,6 +5,7 @@ import CompMostrarCanciones from './componentes/MostrarCanciones';
 import MostCanc from './componentes/MostCanc';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CrearCancion from './componentes/CrearCancion';
+import EditarCancion from './componentes/EditarCanciones';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<MostCanc/>}/>
           <Route path='/guardar' element={<CrearCancion/>}/>
+          <Route path='/actualizar/:id' element={<EditarCancion/>}/>
         </Routes>
       </BrowserRouter>
       {/* <MostCanc/> */}

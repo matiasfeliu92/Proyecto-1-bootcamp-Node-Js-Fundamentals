@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const URI = 'http://localhost:4000/guardar'
 
@@ -24,22 +24,23 @@ const CrearCancion = () => {
     return (
         <div>
             <h1>Ingresa tu cancion favorita</h1>
+            <Link to="/" className="btn btn-primary">Ir a la lista</Link>
             <form onSubmit= {store}>
                 <div className="container">
                     <label className="form-label">Imagen</label>
-                    <input className='form-control' value={imagen} onChange={(e) => setImagen(e.target.value)} type="url" />
+                    <input className='form-control' value={imagen} placeholder="ingresa la URL de la imagen" onChange={(e) => setImagen(e.target.value)} type="url" />
                     <label className="form-label">Titulo</label>
-                    <input className='form-control' value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" />
+                    <input className='form-control' value={titulo} placeholder="ingresa el titulo" onChange={(e) => setTitulo(e.target.value)} type="text" />
                     <label className="form-label">Autor</label>
-                    <input className='form-control' value={autor} onChange={(e) => setAutor(e.target.value)} type="text" />
+                    <input className='form-control' value={autor} placeholder="ingresa el autor" onChange={(e) => setAutor(e.target.value)} type="text" />
                     <label className="form-label">Album</label>
-                    <input className='form-control' value={album} onChange={(e) => setAlbum(e.target.value)} type="text" />
+                    <input className='form-control' value={album} placeholder="ingresa el album" onChange={(e) => setAlbum(e.target.value)} type="text" />
                     <label className="form-label">Genero</label>
-                    <input className='form-control' value={genero} onChange={(e) => setGenero(e.target.value)} type="text" />
+                    <input className='form-control' value={genero} placeholder="ingresa el genero musical" onChange={(e) => setGenero(e.target.value)} type="text" />
                     <label className="form-label">Duracion</label>
-                    <input className='form-control' value={duracion} onChange={(e) => setDuracion(e.target.value)} type="text" />
+                    <input className='form-control' value={duracion} placeholder="ingresa la duracion" onChange={(e) => setDuracion(e.target.value)} type="text" />
                     <label className="form-label">Link YouTube</label>
-                    <input className='form-control' value={linkYouTube} onChange={(e) => setLinkYouTube(e.target.value)} type="url" />
+                    <input className='form-control' value={linkYouTube} placeholder="ingresa la URL de YouTube" onChange={(e) => setLinkYouTube(e.target.value)} type="url" />
                     <button type='submit' className='btn btn-primary'>Enviar</button>
                 </div>
             </form>
