@@ -3,6 +3,8 @@ import './App.css';
 
 import CompMostrarCanciones from './componentes/MostrarCanciones';
 import MostCanc from './componentes/MostCanc';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CrearCancion from './componentes/CrearCancion';
 
 function App() {
   return (
@@ -11,7 +13,13 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header> */}
       {/* <CompMostrarCanciones/> */}
-      <MostCanc/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<MostCanc/>}/>
+          <Route path='/guardar' element={<CrearCancion/>}/>
+        </Routes>
+      </BrowserRouter>
+      {/* <MostCanc/> */}
     </div>
   );
 }

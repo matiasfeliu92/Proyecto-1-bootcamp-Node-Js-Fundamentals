@@ -18,11 +18,12 @@ class MostCanc extends React.Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <button className="btn btn-primary">Ingresa tu cancion favorita</button>
+                    <Link to="/guardar" className="btn btn-primary">Ingresa tu cancion favorita</Link>
                     <div className='col'>
                         <table className='table'>
                             <thead className='table-primary'>
                                 <tr>
+                                    <th>Imagen</th>
                                     <th>Titulo</th>
                                     <th>Autor</th>
                                     <th>Album</th>
@@ -33,6 +34,7 @@ class MostCanc extends React.Component {
                             <tbody>
                                 {this.state.canciones.map(cancion => (
                                     <tr key= {cancion.id}>
+                                        <td><img className="img-thumbnail rounded img-fluid" src={cancion.imagen} alt="img" /></td>
                                         <td>{cancion.titulo}</td>
                                         <td>{cancion.autor}</td>
                                         <td>{cancion.album}</td>

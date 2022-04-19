@@ -15,10 +15,7 @@ app.use(morgan('dev'))
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
-app.use(cors({
-    origin:['http://127.0.0.1:5500'],
-    credentials:true
-}))
+app.use(cors())
 
 app.use(express.static(__dirname + '/views'))
 
