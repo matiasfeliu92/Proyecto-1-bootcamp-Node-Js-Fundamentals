@@ -45,7 +45,7 @@ const CompMostrarCanciones = () => {
                                     <td>{cancion.genero}</td>
                                     <td>{cancion.duracion}</td>
                                     <td>
-                                        <Link to={`/edit/${cancion.id}`} className='btn btn-info'>Editar</Link>
+                                        {/* <Link to={`/edit/${cancion.id}`} className='btn btn-info'>Editar</Link> */}
                                         <button onClick={ () => eliminarCanc(cancion.id) } className='btn btn-danger'>Eliminar</button>
                                     </td>
                                 </tr>
