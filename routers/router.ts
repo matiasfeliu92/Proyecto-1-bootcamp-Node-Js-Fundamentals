@@ -1,6 +1,6 @@
 import {Router} from 'express'
 import cors from 'cors'
-import { crearCancion, mostrarCancion, mostrarCanciones } from '../controllers/cancionesController'
+import { actualizarCancion, crearCancion, eliminarCancion, mostrarCancion, mostrarCanciones } from '../controllers/cancionesController'
 const router = Router()
 
 // const corsOptions = {
@@ -11,7 +11,7 @@ const router = Router()
 router.get('/', mostrarCanciones)
 router.get('/:id', mostrarCancion)
 router.post('/guardar', crearCancion)
-// router.put('/actualizar/:id', cors(corsOptions), cancionesController.update)
-// router.get('/eliminar/:id', cancionesController.delete)
+router.put('/actualizar/:id', actualizarCancion)
+router.delete('/eliminar/:id', eliminarCancion)
 
 export default router

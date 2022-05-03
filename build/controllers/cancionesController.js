@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mostrarCancion = exports.mostrarCanciones = exports.crearCancion = void 0;
+exports.eliminarCancion = exports.actualizarCancion = exports.mostrarCancion = exports.mostrarCanciones = exports.crearCancion = void 0;
 const Cancion_1 = require("../models/Cancion");
 const crearCancion = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -62,3 +62,41 @@ const mostrarCancion = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.mostrarCancion = mostrarCancion;
+const actualizarCancion = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    try {
+        const cancion = yield Cancion_1.Canciones.findOneBy({ id: parseInt(id) });
+        if (!cancion) {
+            res.status(403).json({ message: 'no se pudo actualizar la cancion' });
+        }
+        else {
+            yield Cancion_1.Canciones.update({ id: parseInt(id) }, req.body);
+            res.json(cancion);
+        }
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            res.status(403).json({ message: error.message });
+        }
+    }
+});
+exports.actualizarCancion = actualizarCancion;
+const eliminarCancion = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    try {
+        const cancion = yield Cancion_1.Canciones.findOneBy({ id: parseInt(id) });
+        if (!cancion) {
+            res.status(403).json({ message: 'no se pudo eliminar la cancion' });
+        }
+        else {
+            yield Cancion_1.Canciones.delete({ id: parseInt(id) });
+            res.json(cancion);
+        }
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            res.status(403).json({ message: error.message });
+        }
+    }
+});
+exports.eliminarCancion = eliminarCancion;

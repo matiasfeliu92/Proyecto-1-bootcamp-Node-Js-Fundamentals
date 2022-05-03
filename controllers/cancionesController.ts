@@ -49,3 +49,37 @@ export const mostrarCancion = async(req: Request, res: Response) => {
         }
     }
 }
+
+export const actualizarCancion = async(req: Request, res: Response) => {
+    const {id} = req.params
+    try {
+        const cancion = await Canciones.findOneBy({id: parseInt(id)})
+        if(!cancion){
+            res.status(403).json({message: 'no se pudo actualizar la cancion'})
+        } else {
+            await Canciones.update({id: parseInt(id)}, req.body)
+            res.json(cancion)
+        }
+    } catch (error) {
+        if(error instanceof Error){
+            res.status(403).json({message: error.message})
+        }
+    }
+}
+
+export const eliminarCancion = async (req: Request, res: Response) => {
+    const {id} = req.params
+    try {
+        const cancion = await Canciones.findOneBy({id: parseInt(id)})
+        if(!cancion){
+            res.status(403).json({message: 'no se pudo eliminar la cancion'})
+        } else {
+            await Canciones.delete({id: parseInt(id)})
+            res.json(cancion)
+        }
+    } catch (error) {
+        if(error instanceof Error){
+            res.status(403).json({message: error.message})
+        }
+    }
+}

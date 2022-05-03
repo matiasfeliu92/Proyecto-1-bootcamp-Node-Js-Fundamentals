@@ -10,6 +10,6 @@ const router = (0, express_1.Router)();
 router.get('/', cancionesController_1.mostrarCanciones);
 router.get('/:id', cancionesController_1.mostrarCancion);
 router.post('/guardar', cancionesController_1.crearCancion);
-// router.put('/actualizar/:id', cors(corsOptions), cancionesController.update)
-// router.get('/eliminar/:id', cancionesController.delete)
+router.put('/actualizar/:id', cancionesController_1.actualizarCancion);
+router.delete('/eliminar/:id', cancionesController_1.eliminarCancion);
 exports.default = router;
