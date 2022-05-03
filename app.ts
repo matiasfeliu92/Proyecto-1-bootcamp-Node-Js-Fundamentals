@@ -1,7 +1,9 @@
 import express from 'express'
 // const path = require('path')
+import 'reflect-metadata'
 import cors from 'cors'
 import morgan from 'morgan'
+import { AppDataSource } from './database/db'
 
 const app = express()
 
@@ -15,6 +17,13 @@ app.use(cors())
 
 // app.use('/', require('./routers/router'))
 
-app.listen(app.get('port'),()=>{
-    console.log("http://localhost:"+app.get('port'))
-})
+async function main() {
+    await AppDataSource.initialize()
+    console.log('Database is connected');
+    
+    app.listen(3000,()=>{
+        console.log("http://localhost:"+3000)
+    })
+}
+
+main()
