@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 
 ### ELIMINAR CANCIONES
-DELETE http://localhost:4000/canciones/eliminar/20 HTTP/1.1
+DELETE http://localhost:4000/canciones/eliminar/41 HTTP/1.1

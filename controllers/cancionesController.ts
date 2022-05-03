@@ -3,7 +3,7 @@ import { Canciones } from '../models/Cancion'
 
 export const crearCancion = async (req: Request, res: Response) => {
     try {
-        const {titulo, autor, album, genero, duracion, imagen, linkyoutube} = req.body
+        const {titulo, autor, album, genero, duracion, imagen, linkyoutube} = req.body 
 
         const cancion = new Canciones()
         cancion.titulo = titulo
