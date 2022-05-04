@@ -5,25 +5,25 @@ export class Canciones extends BaseEntity {
  @PrimaryGeneratedColumn()
  id: number
 
- @Column()
+ @Column({type: 'varchar', length: 250, nullable: false, unique: true})
  titulo: string
  
- @Column()
+ @Column({type: 'varchar', length: 250, nullable: false})
  autor: string
 
- @Column()
+ @Column({type: 'varchar', length: 250, nullable: false})
  album: string
 
- @Column()
+ @Column({type: 'varchar', length: 250, nullable: false})
  duracion: string
 
- @Column()
+ @Column({type: 'varchar', length: 250, nullable: false})
  genero: string
 
- @Column({length: 1000})
+ @Column({type: 'varchar', length: 1000, nullable: true})
  imagen: string
 
- @Column({length: 1000})
+ @Column({type: 'varchar', length: 1000, nullable: false, unique: true})
  linkyoutube: string
 
  @CreateDateColumn()
