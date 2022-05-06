@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+// import {useForm} from 'react-hook-form'
+import swal from 'sweetalert'
 
 const URI = 'http://localhost:4000/canciones/guardar'
 
@@ -17,9 +19,22 @@ const CrearCancion = () => {
 
     const store = async (e) => {
         e.preventDefault()
-        await axios.post(URI, {imagen: imagen,titulo: titulo, autor: autor, album: album, genero: genero, duracion: duracion, linkYouTube: linkYouTube})
-        alert('cancion creada')
-        navigate('/')
+        const res = await axios.post(URI, {imagen: imagen,titulo: titulo, autor: autor, album: album, genero: genero, duracion: duracion, linkYouTube: linkYouTube})
+        if(res) {
+            swal({
+                title: 'OK',
+                text: "cancion creada",
+                icon: 'success'
+            })
+            navigate('/')
+        } else {
+            swal({
+                title: 'FAIL',
+                text: 'no se pudo crear la cancion',
+                icon: 'error'
+            })
+        }
+        // navigate('/')
     }
 
     return (

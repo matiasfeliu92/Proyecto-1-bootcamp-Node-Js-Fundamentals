@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 const URI = 'http://localhost:4000/canciones/'
 
@@ -34,7 +35,7 @@ const EditarCancion = () => {
     
     const update = async (e) => {
         e.preventDefault(e)
-        await axios.put(URI+'actualizar/'+id, {
+        const res = await axios.put(URI+'actualizar/'+id, {
             titulo: titulo,
             autor: autor,
             album: album,
@@ -43,8 +44,21 @@ const EditarCancion = () => {
             imagen: imagen,
             linkYouTube: linkYouTube
         })
-        alert('cancion actualizada')
-        navigate('/')
+        if(res) {
+            swal({
+                title: 'OK',
+                text: "cancion actualizada",
+                icon: 'success'
+            })
+            navigate('/')
+        } else {
+            swal({
+                title: 'FAIL',
+                text: 'no se pudo crear la cancion',
+                icon: 'error'
+            })
+        }
+        // navigate('/')
     }
     
     return (

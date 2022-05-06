@@ -3,11 +3,16 @@ import axios from "axios";
 import {Link} from 'react-router-dom'
 import './tbody.css';
 
+const eliminarCancion = async(id) => {
+    axios.delete('http://localhost:4000/canciones/eliminar/'+id)
+    this.state.canciones
+}
 class MostCanc extends React.Component {
 
     state = {
         canciones: []
     }
+
 
     async componentDidMount(){
         const res = await axios.get('http://localhost:4000/canciones')

@@ -71,11 +71,11 @@ export const eliminarCancion = async (req: Request, res: Response) => {
     const {id} = req.params
     try {
         const cancion = await Canciones.findOneBy({id: parseInt(id)})
-        if(!cancion){
-            res.status(403).json({message: 'no se pudo eliminar la cancion'})
-        } else {
+        if(cancion){
             await Canciones.delete({id: parseInt(id)})
             res.json(cancion)
+        } else {
+            res.status(403).json({message: 'no se pudo eliminar la cancion'})
         }
     } catch (error) {
         if(error instanceof Error){
