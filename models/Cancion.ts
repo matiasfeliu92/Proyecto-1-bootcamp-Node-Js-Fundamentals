@@ -23,7 +23,7 @@ export class Canciones extends BaseEntity {
  @Column({type: 'varchar', length: 1000, nullable: true})
  imagen: string
 
- @Column({type: 'varchar', length: 1000, nullable: false, unique: true})
+ @Column({type: 'varchar', length: 1000, nullable: false})
  linkyoutube: string
 
  @CreateDateColumn()

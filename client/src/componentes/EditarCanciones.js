@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 
-const URI = 'http://localhost:4000/actualizar/'
+const URI = 'http://localhost:4000/canciones/'
 
 const EditarCancion = () => {
 
@@ -16,20 +16,6 @@ const EditarCancion = () => {
     const navigate = useNavigate()
 
     const {id} = useParams()
-
-    const update = async (e) => {
-        e.preventDefault(e)
-        await axios.put(URI+id, {
-            titulo: titulo,
-            autor: autor,
-            album: album,
-            genero: genero,
-            duracion: duracion,
-            imagen: imagen,
-            linkYouTube: linkYouTube
-        })
-        navigate('/')
-    }
 
     useEffect( () => {
         cancionById()
@@ -45,7 +31,22 @@ const EditarCancion = () => {
         setImagen(res.data.imagen)
         setLinkYouTube(res.data.linkYouTube)
     }
-
+    
+    const update = async (e) => {
+        e.preventDefault(e)
+        await axios.put(URI+'actualizar/'+id, {
+            titulo: titulo,
+            autor: autor,
+            album: album,
+            genero: genero,
+            duracion: duracion,
+            imagen: imagen,
+            linkYouTube: linkYouTube
+        })
+        alert('cancion actualizada')
+        navigate('/')
+    }
+    
     return (
         <div>
             <h1>Actualiza tu cancion favorita</h1>

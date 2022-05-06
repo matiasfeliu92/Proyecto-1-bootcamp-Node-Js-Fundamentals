@@ -9,26 +9,26 @@ POST http://localhost:4000/canciones/guardar HTTP/1.1
 Content-Type: application/json
  
 {
-    "titulo": "Ruleta",
+    "titulo": "dffghfd",
     "autor": "Los Piojos",
     "album": "unknown",
     "duracion": "4:38",
     "genero": "Rock Nacional",
     "imagen": "www.argentina.gov.ar",
-    "linkyoutube": "https://www.youtube.com/watch?v=Yn28dEOMe0U"
+    "linkyoutube": "https://www.youtube.com/watch?v="
 }
 
 ### ACTUALIZAR UNA CANCION
-PUT http://localhost:4000/canciones/actualizar/32 HTTP/1.1
+PUT http://localhost:4000/canciones/actualizar/48 HTTP/1.1
 Content-Type: application/json
  
 {
-    "titulo": "La soledad",
-    "autor": "La Bersuit",
-    "album": "dgdfgdf",
-    "duracion": "3:30",
-    "genero": "Rock Nacional",
-    "imagen": "www.argentina.gov.ar",
+    "titulo": "fgfdgfdg",
+    "autor": "fhfdghfd",
+    "album": "fgfdgfx",
+    "duracion": "fgfdgdfg",
+    "genero": "gfdgdf",
+    "imagen": "",
     "linkyoutube": "https://www.youtube.com/"
 }
 

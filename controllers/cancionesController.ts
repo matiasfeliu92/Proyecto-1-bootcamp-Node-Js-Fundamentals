@@ -54,11 +54,11 @@ export const actualizarCancion = async(req: Request, res: Response) => {
     const {id} = req.params
     try {
         const cancion = await Canciones.findOneBy({id: parseInt(id)})
-        if(!cancion){
-            res.status(403).json({message: 'no se pudo actualizar la cancion'})
-        } else {
+        if(cancion){
             await Canciones.update({id: parseInt(id)}, req.body)
             res.json(cancion)
+        } else {
+            res.status(403).json({message: 'no se pudo actualizar la cancion'})
         }
     } catch (error) {
         if(error instanceof Error){

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
-const URI = 'http://localhost:4000/guardar'
+const URI = 'http://localhost:4000/canciones/guardar'
 
 const CrearCancion = () => {
 
@@ -18,6 +18,7 @@ const CrearCancion = () => {
     const store = async (e) => {
         e.preventDefault()
         await axios.post(URI, {imagen: imagen,titulo: titulo, autor: autor, album: album, genero: genero, duracion: duracion, linkYouTube: linkYouTube})
+        alert('cancion creada')
         navigate('/')
     }
 
