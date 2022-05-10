@@ -14,7 +14,14 @@ app.use(morgan('dev'))
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
-app.use(cors())
+
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+    methods: "GET, POST, PUT"
+}
+
+app.use(cors(corsOptions))
 
 app.use('/canciones', cancionesRoutes)
 

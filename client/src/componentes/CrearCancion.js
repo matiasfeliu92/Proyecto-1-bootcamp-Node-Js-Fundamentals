@@ -19,8 +19,8 @@ const CrearCancion = () => {
 
     const store = async (e) => {
         e.preventDefault()
-        const res = await axios.post(URI, {imagen: imagen,titulo: titulo, autor: autor, album: album, genero: genero, duracion: duracion, linkYouTube: linkYouTube})
-        if(res) {
+        const res = await axios.post(URI, {imagen: imagen,titulo: titulo, autor: autor, album: album, genero: genero, duracion: duracion, linkYouTube: linkYouTube}, {headers: {'content-type': 'application/json'}}, {validateStatus: () => true})
+        if(res.data.status !== 403) {
             swal({
                 title: 'OK',
                 text: "cancion creada",
@@ -30,7 +30,7 @@ const CrearCancion = () => {
         } else {
             swal({
                 title: 'FAIL',
-                text: 'no se pudo crear la cancion',
+                text: "no se pudo crear la cancion",
                 icon: 'error'
             })
         }

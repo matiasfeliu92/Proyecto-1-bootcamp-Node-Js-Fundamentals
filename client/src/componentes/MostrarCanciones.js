@@ -15,9 +15,7 @@ const CompMostrarCanciones = () => {
     //para mostrar todas las canciones
     const mostrarCanc = async () => {
         const res = await axios.get(URI)
-        // console.log(res)
         setCancion(res.data)
-        //console.log(res.data)
     }
 
     //para eliminar todas las canciones
@@ -31,7 +29,6 @@ const CompMostrarCanciones = () => {
         })
         mostrarCanc()
         navigate('/')
-        
     }
 
     return (
