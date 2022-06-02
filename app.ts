@@ -29,8 +29,8 @@ async function main() {
     await AppDataSource.initialize()
     console.log('Database is connected');
     
-    app.listen(4000,()=>{
-        console.log("http://localhost:"+4000)
+    app.listen(process.env.PORT || 4000,()=>{
+        console.log("http://localhost:"+process.env.PORT || 4000)
     })
 }
 
