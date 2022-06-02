@@ -23,7 +23,7 @@ var corsOptions = {
 
 app.use(cors(corsOptions))
 
-app.use('/canciones', cancionesRoutes)
+app.use('/', cancionesRoutes)
 
 async function main() {
     await AppDataSource.initialize()
