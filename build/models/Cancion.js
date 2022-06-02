@@ -18,31 +18,31 @@ __decorate([
     __metadata("design:type", Number)
 ], Canciones.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 250, nullable: false, unique: true }),
     __metadata("design:type", String)
 ], Canciones.prototype, "titulo", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 250, nullable: false }),
     __metadata("design:type", String)
 ], Canciones.prototype, "autor", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 250, nullable: false }),
     __metadata("design:type", String)
 ], Canciones.prototype, "album", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 250, nullable: false }),
     __metadata("design:type", String)
 ], Canciones.prototype, "duracion", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 250, nullable: false }),
     __metadata("design:type", String)
 ], Canciones.prototype, "genero", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 1000 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 1000, nullable: true }),
     __metadata("design:type", String)
 ], Canciones.prototype, "imagen", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 1000 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 1000, nullable: false }),
     __metadata("design:type", String)
 ], Canciones.prototype, "linkyoutube", void 0);
 __decorate([

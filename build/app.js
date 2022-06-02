@@ -20,18 +20,23 @@ const morgan_1 = __importDefault(require("morgan"));
 const router_1 = __importDefault(require("./routers/router"));
 const db_1 = require("./database/db");
 const app = (0, express_1.default)();
-app.set('port', process.env.PORT || 4000);
+// app.set('port', process.env.PORT || 4000)
 app.use((0, morgan_1.default)('dev'));
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
-app.use((0, cors_1.default)());
-app.use('/canciones', router_1.default);
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+    methods: "GET, POST, PUT"
+};
+app.use((0, cors_1.default)(corsOptions));
+app.use('/', router_1.default);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         yield db_1.AppDataSource.initialize();
         console.log('Database is connected');
-        app.listen(4000, () => {
-            console.log("http://localhost:" + 4000);
+        app.listen(process.env.PORT || 4000, () => {
+            console.log("http://localhost:" + process.env.PORT || 4000);
         });
     });
 }

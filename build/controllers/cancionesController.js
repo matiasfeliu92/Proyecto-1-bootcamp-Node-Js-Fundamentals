@@ -66,12 +66,12 @@ const actualizarCancion = (req, res) => __awaiter(void 0, void 0, void 0, functi
     const { id } = req.params;
     try {
         const cancion = yield Cancion_1.Canciones.findOneBy({ id: parseInt(id) });
-        if (!cancion) {
-            res.status(403).json({ message: 'no se pudo actualizar la cancion' });
-        }
-        else {
+        if (cancion) {
             yield Cancion_1.Canciones.update({ id: parseInt(id) }, req.body);
             res.json(cancion);
+        }
+        else {
+            res.status(403).json({ message: 'no se pudo actualizar la cancion' });
         }
     }
     catch (error) {
@@ -85,12 +85,12 @@ const eliminarCancion = (req, res) => __awaiter(void 0, void 0, void 0, function
     const { id } = req.params;
     try {
         const cancion = yield Cancion_1.Canciones.findOneBy({ id: parseInt(id) });
-        if (!cancion) {
-            res.status(403).json({ message: 'no se pudo eliminar la cancion' });
-        }
-        else {
+        if (cancion) {
             yield Cancion_1.Canciones.delete({ id: parseInt(id) });
             res.json(cancion);
+        }
+        else {
+            res.status(403).json({ message: 'no se pudo eliminar la cancion' });
         }
     }
     catch (error) {
