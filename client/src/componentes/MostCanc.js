@@ -3,10 +3,10 @@ import axios from "axios";
 import {Link} from 'react-router-dom'
 import './tbody.css';
 
-const eliminarCancion = async(id) => {
-    axios.delete('http://localhost:4000/canciones/eliminar/'+id)
-    this.state.canciones
-}
+// const eliminarCancion = async(id) => {
+//     axios.delete('http://localhost:4000/eliminar/'+id)
+//     this.state.canciones
+// }
 class MostCanc extends React.Component {
 
     state = {
@@ -15,7 +15,7 @@ class MostCanc extends React.Component {
 
 
     async componentDidMount(){
-        const res = await axios.get('http://localhost:4000/canciones')
+        const res = await axios.get('http://localhost:4000')
         console.log(res.data)
         this.setState({canciones: res.data})
     }
