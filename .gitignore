@@ -4,4 +4,4 @@ node_modules
 Readme.md
 # Local Netlify folder
 .netlify
-MostrarCanc.js
+./src/componentes/MostCanc.js

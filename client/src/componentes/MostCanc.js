@@ -15,7 +15,7 @@ class MostCanc extends React.Component {
 
 
     async componentDidMount(){
-        const res = await axios.get('http://localhost:4000')
+        const res = await axios.get('http://localhost:4000/')
         console.log(res.data)
         this.setState({canciones: res.data})
     }

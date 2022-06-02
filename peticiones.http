@@ -1,11 +1,11 @@
 ### MOSTRAR TODAS LAS CANCIONES
-GET http://localhost:4000/canciones HTTP/1.1
+GET http://localhost:4000/ HTTP/1.1
 
 ### MOSTRAR LAS CANCIONES POR ID
-GET http://localhost:4000/canciones/54 HTTP/1.1
+GET http://localhost:4000/145 HTTP/1.1
 
 ### INSERTAR UNA NUEVA CANCION
-POST http://localhost:4000/canciones/guardar HTTP/1.1
+POST http://localhost:4000/guardar HTTP/1.1
 Content-Type: application/json
  
 {
@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ### ACTUALIZAR UNA CANCION
-PUT http://localhost:4000/canciones/actualizar/48 HTTP/1.1
+PUT http://localhost:4000/actualizar/48 HTTP/1.1
 Content-Type: application/json
  
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 
 ### ELIMINAR CANCIONES
-DELETE http://localhost:4000/canciones/eliminar/54 HTTP/1.1
+DELETE http://localhost:4000/eliminar/98 HTTP/1.1
