@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
     app.use(express_1.default.static(path_1.default.resolve(__dirname, 'client', 'build')));
     res.sendFile(path_1.default.resolve(__dirname, 'client', 'build', 'index.html'));
 });
-app.use('/', router_1.default);
+app.use('/canciones', router_1.default);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         yield db_1.AppDataSource.initialize();

@@ -31,7 +31,7 @@ app.get('/', (req: Request, res: Response)=>{
 })
 
 
-app.use('/', cancionesRoutes)
+app.use('/canciones', cancionesRoutes)
 
 async function main() {
     await AppDataSource.initialize()
