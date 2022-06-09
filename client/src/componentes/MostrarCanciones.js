@@ -59,7 +59,7 @@ const CompMostrarCanciones = () => {
                                     <td>{cancion.album}</td>
                                     <td>{cancion.genero}</td>
                                     <td>{cancion.duracion}</td>
-                                    <td><a className="btn btn-primary" target="_blank" href={cancion.linkyoutube}>Link YouTube</a></td>
+                                    <td><a className="btn btn-primary" href={cancion.linkyoutube}>Link YouTube</a></td>
                                     <td>
                                         <Link to={`/actualizar/${cancion.id}`} className='btn btn-info'>Editar</Link>
                                         <button onClick={()=>eliminarCanc(cancion.id)} className='btn btn-danger'>Eliminar</button>

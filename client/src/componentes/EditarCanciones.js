@@ -20,7 +20,7 @@ const EditarCancion = () => {
 
     useEffect( () => {
         cancionById()
-    }, [])
+    })
 
     const cancionById = async () => {
         const res = await axios.get(URI+id)
