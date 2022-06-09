@@ -31,12 +31,10 @@ var corsOptions = {
     methods: "GET, POST, PUT"
 };
 app.use((0, cors_1.default)(corsOptions));
-if (process.env.NODE_ENV == 'production') {
-    app.get('/', (req, res) => {
-        app.use(express_1.default.static(path_1.default.resolve(__dirname, 'client', 'build')));
-        res.sendFile(path_1.default.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
+app.get('/', (req, res) => {
+    app.use(express_1.default.static(path_1.default.resolve(__dirname, 'client', 'build')));
+    res.sendFile(path_1.default.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 app.use('/', router_1.default);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {

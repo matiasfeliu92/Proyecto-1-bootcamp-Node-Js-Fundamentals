@@ -24,12 +24,12 @@ var corsOptions = {
 
 app.use(cors(corsOptions))
 
-if(process.env.NODE_ENV=='production'){
-    app.get('/', (req: Request, res: Response)=>{
-        app.use(express.static(path.resolve(__dirname,'client','build')))
-        res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-    })
-}
+
+app.get('/', (req: Request, res: Response)=>{
+    app.use(express.static(path.resolve(__dirname,'client','build')))
+    res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+})
+
 
 app.use('/', cancionesRoutes)
 
