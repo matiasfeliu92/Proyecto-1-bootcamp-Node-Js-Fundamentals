@@ -32,8 +32,8 @@ var corsOptions = {
 };
 app.use((0, cors_1.default)(corsOptions));
 app.get('/', (req, res) => {
-    app.use(express_1.default.static(path_1.default.resolve(__dirname, 'client', 'build')));
-    res.sendFile(path_1.default.resolve(__dirname, 'client', 'build', 'index.html'));
+    app.use(express_1.default.static(path_1.default.resolve(__dirname, 'client', 'public')));
+    res.sendFile(path_1.default.resolve(__dirname, 'client', 'public', 'index.html'));
 });
 app.use('/canciones', router_1.default);
 function main() {

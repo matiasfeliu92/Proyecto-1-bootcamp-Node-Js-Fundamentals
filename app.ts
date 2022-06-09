@@ -26,8 +26,8 @@ app.use(cors(corsOptions))
 
 
 app.get('/', (req: Request, res: Response)=>{
-    app.use(express.static(path.resolve(__dirname,'client','build')))
-    res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+    app.use(express.static(path.resolve(__dirname,'client','public')))
+    res.sendFile(path.resolve(__dirname,'client','public','index.html'))
 })
 
 
