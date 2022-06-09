@@ -1,6 +1,7 @@
-import express from 'express'
+import express, {Request, Response} from 'express'
 // const path = require('path')
 import 'reflect-metadata'
+import path from 'path'
 import cors from 'cors'
 import morgan from 'morgan'
 import cancionesRoutes from './routers/router'
@@ -22,6 +23,13 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions))
+
+if(process.env.NODE_ENV=='production'){
+    app.get('/', (req: Request, res: Response)=>{
+        app.use(express.static(path.resolve(__dirname,'client','build')))
+        res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+    })
+}
 
 app.use('/', cancionesRoutes)
 
