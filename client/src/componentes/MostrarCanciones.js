@@ -3,7 +3,7 @@ import { useState, useEffect} from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import swal from 'sweetalert'
 
-const URI = 'http://localhost:4000'
+const URI = 'http://localhost:4000/canciones'
 
 const CompMostrarCanciones = () => {
     const [canciones, setCancion] = useState([])

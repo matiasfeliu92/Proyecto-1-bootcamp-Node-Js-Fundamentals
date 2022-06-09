@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import swal from 'sweetalert'
 
-const URI = 'http://localhost:4000'
+const URI = 'http://localhost:4000/canciones/'
 
 const EditarCancion = () => {
 
