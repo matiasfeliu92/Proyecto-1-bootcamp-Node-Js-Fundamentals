@@ -2,7 +2,7 @@
 GET http://localhost:4000/canciones HTTP/1.1
 
 ### MOSTRAR LAS CANCIONES POR ID
-GET http://localhost:4000/canciones/145 HTTP/1.1
+GET http://localhost:4000/canciones/102 HTTP/1.1
 
 ### INSERTAR UNA NUEVA CANCION
 POST http://localhost:4000/canciones/guardar HTTP/1.1
